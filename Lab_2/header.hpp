@@ -4,31 +4,50 @@
 #include <iostream>
 using namespace std;
 
-class lichid
+class Lichid
 {
 protected:
     char *name;
     float density;
 public:
-    lichid ();
-    lichid (char *name, float density);
+    Lichid ();
+    Lichid (char *name, float density);
     void changeDensity (float new_value);
-    void output_values();
+    char *get_name();
+    float get_density();
 };
 
-class alcohol: public lichid
+class Alcohol: public Lichid
 {
+protected:
     int content;
-    int sweetness;
 public:
-    alcohol(char *name, float density, int content, int sweetness) : lichid(name, density)
+    Alcohol(char *name, float density, int content) : Lichid(name, density)
     {
         this->content = content;
+    }
+    void change_content(int new_value);
+    int get_content();
+};
+
+class Wine: public Alcohol
+{
+    int sweetness;
+public:
+    Wine(char *name, float density, int content, int sweetness) : Alcohol(name, density, content)
+    {
         this->sweetness = sweetness;
     }
     void change_sweetness(int new_value);
-    void change_content(int new_value);
-    void output_values();
+    int get_sweetness();
+};
+
+class OutputData
+{
+public:
+    void output(Wine data);
+    void output(Alcohol data);
+    void output(Lichid data);
 };
 
 #endif
