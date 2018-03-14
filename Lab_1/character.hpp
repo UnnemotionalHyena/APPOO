@@ -7,7 +7,9 @@
 #include <iostream>
 #include <string>
 
-class character
+#include "character_move.hpp"
+
+class character : public Movement
 {
 public:
     bool stop_left = false;

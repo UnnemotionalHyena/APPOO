@@ -227,8 +227,8 @@ int main( int argc, char* args[] )
 
                 }
 
-                terror[0].render( terror[0].change_position(), ( SCREEN_HEIGHT - currentClip2->h ) / 2 + 220, currentClip2, 0, terror[0].flip);
-                terror[1].render( terror[1].change_position(), ( SCREEN_HEIGHT - currentClip2->h ) / 2 + 220, currentClip2, 0, terror[1].flip);
+                terror[0].render( terror[0].change_position(2), ( SCREEN_HEIGHT - currentClip2->h ) / 2 + 220, currentClip2, 0, terror[0].flip);
+                terror[1].render( terror[1].change_position(2), ( SCREEN_HEIGHT - currentClip2->h ) / 2 + 220, currentClip2, 0, terror[1].flip);
                 batman.render( batman.get_position(), ( SCREEN_HEIGHT - currentClip->h ) / 2 + 220, currentClip, 0, flipType);
                 SDL_RenderPresent( gRenderer );
 

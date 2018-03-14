@@ -5,8 +5,9 @@
 #include <random>
 #include <time.h>
 #include "character.hpp"
+#include "character_move.hpp"
 
-class enemy : public character
+class enemy : public character, public Movement
 {
 public:
     SDL_RendererFlip flip;
@@ -14,7 +15,7 @@ public:
     int enemy_waiting_hit;
     bool wait;
 
-    enemy() 
+    enemy()
     {
         wait = false;
         int enemy_waiting_hit = 0;
@@ -22,7 +23,7 @@ public:
         pPosition = 810;
     };
 
-    int change_position();
+    int change_position(int x);
     int get_initial_position();
     void set_initial_position(int i);
 private:

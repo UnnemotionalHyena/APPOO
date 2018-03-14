@@ -1,6 +1,6 @@
 #include "enemy.hpp"
 
-int enemy::change_position()
+int enemy::change_position(int x)
 {
     if (initial_position == 0 && !stop)
     {
@@ -10,7 +10,7 @@ int enemy::change_position()
         }
         else
         {
-            return pPosition -= 2;
+            return pPosition -= x;
         }
     }
     else if (!stop)
@@ -21,7 +21,7 @@ int enemy::change_position()
         }
         else
         {
-            return pPosition += 2;
+            return pPosition += x;
         }
     }
     return pPosition;
