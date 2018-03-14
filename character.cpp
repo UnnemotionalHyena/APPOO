@@ -58,7 +58,7 @@ void character::render( int x, int y, SDL_Rect* clip, SDL_Point* center, SDL_Ren
         renderQuad.h = clip->h;
     }
 
-    SDL_RenderCopyEx( gRenderer, mTexture, clip, &renderQuad, NULL, NULL, flip );
+    SDL_RenderCopyEx( gRenderer, mTexture, clip, &renderQuad, 0, NULL, flip );
 }
 
 void character::free()
@@ -95,4 +95,9 @@ int character::get_position()
 void character::set_position(int x)
 {
     pPosition = x;
+}
+
+void character::set_initial_position()
+{
+    pPosition = 730 / 2 - 77;
 }

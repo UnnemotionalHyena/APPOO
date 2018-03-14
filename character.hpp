@@ -28,6 +28,7 @@ public:
     int get_position();
     void set_position(int x);
     int change_position(int x);
+    void set_initial_position();
 
 private:
     SDL_Texture* mTexture;

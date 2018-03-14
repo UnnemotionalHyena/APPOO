@@ -29,7 +29,7 @@ int main( int argc, char* args[] )
     int nr_enemys = 0;
     int enemy_waiting_hit = 0;
     int score_count = 0;
-    batman.set_position(( SCREEN_WIDTH - enemy_clips[0].w ) / 2);
+    batman.set_initial_position();
     SDL_RendererFlip flipType = SDL_FLIP_NONE;
 
 
@@ -156,9 +156,6 @@ int main( int argc, char* args[] )
 
                 background.render(0,0, NULL, NULL, SDL_FLIP_NONE);
 
-                // printf("terror %d\n",terror[0].get_position());
-                // printf("batman %d\n",batman.get_position());
-
                 if (batman.get_position() > terror[0].get_position() - 50)
                 {
 
@@ -196,9 +193,6 @@ int main( int argc, char* args[] )
                     batman.stop_left = false;
                 }
 
-                // printf("terror0 = %d\n",terror[0].get_position());
-                // printf("batman = %d\n",batman.get_position());
-
                 if ((global_frames - hit_count_animation) < 6)
                 {
                     batman.stop_left = true;
@@ -233,9 +227,9 @@ int main( int argc, char* args[] )
 
                 }
 
-                terror[0].render( terror[0].change_position(), ( SCREEN_HEIGHT - currentClip2->h ) / 2 + 220, currentClip2, NULL, terror[0].flip);
-                terror[1].render( terror[1].change_position(), ( SCREEN_HEIGHT - currentClip2->h ) / 2 + 220, currentClip2, NULL, terror[1].flip);
-                batman.render( batman.get_position(), ( SCREEN_HEIGHT - currentClip->h ) / 2 + 220, currentClip, NULL, flipType);
+                terror[0].render( terror[0].change_position(), ( SCREEN_HEIGHT - currentClip2->h ) / 2 + 220, currentClip2, 0, terror[0].flip);
+                terror[1].render( terror[1].change_position(), ( SCREEN_HEIGHT - currentClip2->h ) / 2 + 220, currentClip2, 0, terror[1].flip);
+                batman.render( batman.get_position(), ( SCREEN_HEIGHT - currentClip->h ) / 2 + 220, currentClip, 0, flipType);
                 SDL_RenderPresent( gRenderer );
 
                 ++frame;
