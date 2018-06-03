@@ -1,0 +1,60 @@
+@startuml
+
+title Taxi SHmaxi
+
+class mainActivity {
+    +orderRide()
+    +cancelRide()
+}
+
+class signInActivity {
+    +signIn(User)
+    +logIn(User)
+}
+
+
+class User {
+  +login
+  +password
+  +email
+  
+  +login()
+  +register()
+}
+
+class Api {
+    +response
+    +post_data
+    +session
+    +connect(User)
+    +getData(User, url)
+    +postData()
+    +serialization()
+    +deserialization()
+}
+
+class Order {
+    +time
+    +start_point
+    +end_point
+    +setTime()
+    +setDirections()
+    +selectDriver(Api)
+}
+
+class Rate {
+    +stars
+    +setStars()
+    +rateUser(Api)
+    +rateDriver(Api)
+}
+
+Api --> Order
+Api --> Rate
+User --> Api
+
+signInActivity <- User
+mainActivity <- signInActivity
+mainActivity <- Order
+
+@enduml

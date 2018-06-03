@@ -1,0 +1,44 @@
+@startuml
+
+title Taxi SHmaxi
+
+package "Activities" {
+    [mainActivity]
+    [signInActivity]
+    [signUpActivity]
+    [Finish]
+    [SelectDriver]
+    [SelectRide]
+}
+
+package "Helpers"{
+    [PointD]
+    [HttpRequests]
+    [HashMapToJson]
+}
+
+
+[mainActivity] <- [signInActivity]
+[mainActivity] <- [signUpActivity]
+[SelectDriver] <- [mainActivity]
+
+[SelectRide]<-[SelectDriver]
+[Finish]<-[SelectDriver]
+[SelectRide]->[Finish]
+
+[HttpRequests] --> [SelectRide]
+[HttpRequests] --> [SelectDriver]
+[HttpRequests] --> [Finish]
+[HttpRequests] -->  [signInActivity]
+[HttpRequests] -->  [signUpActivity]
+
+
+[PointD] ---> [SelectRide]
+[PointD] ---> [mainActivity]
+[PointD] ---> [SelectDriver]
+
+[HashMapToJson] ---> [mainActivity]
+[HashMapToJson] ---> [SelectDriver]
+[HashMapToJson] ---> [SelectRide]
+
+@enduml

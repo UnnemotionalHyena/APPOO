@@ -1,0 +1,41 @@
+@startuml
+title Get Rides
+hide footbox
+
+actor User
+activate User
+
+User -> Screen: Click Sign In
+activate Screen
+Screen -> App: Sign In
+activate App
+
+App -> Server: Get Token
+activate Server
+Server --> App: Toke
+deactivate Server
+
+App --> Screen: Next Activity
+Screen --> User: Show the next Activity
+
+User -> Screen: Select the start point
+Screen -> App: Give start point
+App --> Screen: Show start point
+Screen --> User: Show the start_point
+
+User -> Screen: Select the end point
+Screen -> App: Give end point
+App --> Screen: Show end point
+Screen --> User: Show the end_point
+
+User -> Screen: confirm
+Screen -> App: go to next activity
+App -> Server: Give rides
+activate Server
+Server --> App: rides
+deactivate Server
+App --> Screen: list rides
+Screen --> User: rides
+
+
+@enduml
